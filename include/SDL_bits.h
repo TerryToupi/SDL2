@@ -99,6 +99,15 @@ SDL_MostSignificantBitIndex32(Uint32 x)
 
     return msbIndex;
 #endif
+} 
+
+SDL_FORCE_INLINE SDL_bool
+SDL_HasExactlyOneBitSet32(Uint32 x)
+{
+    if (x && !(x & (x - 1))) {
+        return SDL_TRUE;
+    }
+    return SDL_FALSE;
 }
 
 /* Ends C function definitions when using C++ */
